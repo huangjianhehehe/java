@@ -1,0 +1,10 @@
+drop database if exists yootk;
+create database yootk character set utf8;
+use yootk;
+drop table if exists member;
+create table member(
+    mid varchar(50),
+    password    varchar(32) not null,
+    contraint pk_mid primary key(mid)
+);
+insert into member(mid,password) values('yootk','hello');
