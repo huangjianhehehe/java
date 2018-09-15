@@ -1,3 +1,5 @@
+//登陆框bootstrap+jsp设计案例中的数据库
+
 drop database if exists yootk;
 create database yootk character set utf8;
 use yootk;
