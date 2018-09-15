@@ -54,23 +54,15 @@ namespace 连接数据库SQL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string constr = "data source=172.30.2.31; initial catalog=itcast2018; integrated security=true";
+            string constr = "data source = 172.30.2.31; initial catalog = itcast2018;integrated security = SSPI";
 
             using (SqlConnection conn = new SqlConnection(constr))
             {
-
-                string select = "select name,age from staff";
                 conn.Open();
-                this.textBox1.BackColor = Color.Green;
-                this.textBox1.Text = "OK";
-                SqlCommand cmd = new SqlCommand(select, conn);
-                SqlDataReader rowsreader = cmd.ExecuteReader();
-                while (rowsreader.Read()) {
-                    this.textBox2.Text = "name:" + rowsreader[0]+"age:"+rowsreader[1];
-                    
-                }
-                
-
+                string select = "select count(*) from staff";
+                SqlCommand cmd = new SqlCommand(select,conn);
+               object result = cmd.ExecuteScalar();
+               this.button6.Text = result.ToString();
             }
             
         }
